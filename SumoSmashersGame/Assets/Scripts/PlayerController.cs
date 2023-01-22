@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public PlayerData playerData;
     public Rigidbody2D playerRB;
 
-    //private InputActions inputActions;
+    private InputActions inputActions;
     private Vector2 inputMoveVector;
     private Vector2 inputAimVector;
     private Vector2 currentLocation;
@@ -27,14 +27,14 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         
         
-        /*inputActions = new InputActions();
+        inputActions = new InputActions();
         
         inputActions.Player.Enable();
         
         inputActions.Player.Move.performed += StartMove;
         inputActions.Player.Move.canceled += StopMove;
         
-        inputActions.Player.Aim.performed += StartFiring;
+        /*inputActions.Player.Aim.performed += StartFiring;
         inputActions.Player.Aim.canceled += StopFiring;*/
         
         speed = playerData.speed;
