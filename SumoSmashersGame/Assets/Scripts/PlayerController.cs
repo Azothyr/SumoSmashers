@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
     public UnityEvent deathEvent;
     
     public PlayerData playerData;
-    public CharacterController playerCharacterController;
+    public Rigidbody playerRB;
 
     private InputActions inputActions;
     private Vector3 moveDirection;
+    private Vector3 currentLocation;
+    private Vector3 skew;
     private Vector2 inputVector;
-    private Vector2 currentLocation;
 
     private float speed;
     private float knockbackPower;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerCharacterController = GetComponent<CharacterController>();
+        playerRB = GetComponent<Rigidbody>();
         
         inputActions = new InputActions();
         
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         
         inputActions.Player.Move.performed += StartMove;
         inputActions.Player.Move.canceled += StopMove;
+        
         
         speed = playerData.speed;
     }
@@ -50,20 +52,18 @@ public class PlayerController : MonoBehaviour
     {
         while (playerData.canRun.value)
         {
-            moveDirection = new Vector3(inputVector.x, 0, inputVector.y)*Time.deltaTime;
-            playerCharacterController.Move(moveDirection);
-            //currentLocation = playerRB.position;
-            //playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
-            //playerRB.MovePosition(currentLocation + inputMoveVector * (playerData.speed * Time.deltaTime));
+            moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
+            skew = Quaternion.Euler(new Vector3(0, -45, 0)) * moveDirection;
+            SetCurrentV3();
+            playerRB.AddForce(skew * (playerData.speed * Time.deltaTime));
             yield return wffuObj;
         }
     }
 
     public void SetCurrentV3()
     {
-        //currentLocation = playerRB.position;
-        currentLocation = playerCharacterController.center;
-        playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
+        currentLocation = playerRB.position;
+        playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, currentLocation.z);
     }
 
     private void GameOver()
