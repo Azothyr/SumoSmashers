@@ -6,6 +6,6 @@ public class CharacterData : ScriptableObject
 {
     public new string name;
     public ID id;
-    public float health, speed, damage;
+    public float speed, knockbackPower;
     public BoolData canRun, gameOver;
 }

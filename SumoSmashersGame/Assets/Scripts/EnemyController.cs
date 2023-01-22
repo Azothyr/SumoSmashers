@@ -21,8 +21,6 @@ public class EnemyController : MonoBehaviour
     {
         navAgentBehaviour = GetComponent<NavAgentBehaviour>();
         
-        damage = enemyData.damage;
-        health = enemyData.health;
         speed = enemyData.speed;
         
         navAgentBehaviour.SetMovementVariables(speed);
@@ -46,24 +44,14 @@ public class EnemyController : MonoBehaviour
         GameOverCheck();
     }
     
-    public void OnTriggerEnter2D(Collider2D other)
+    /*public void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
             player.DamagePlayer(damage);
         }
-    }
-    
-    public void DamageEnemy(float damageTaken)
-    {
-        health -= damageTaken;
-
-        if (health <= 0)
-        {
-            deathEvent.Invoke();
-        }
-    }
+    }*/
 
     private void GameOverCheck()
     {

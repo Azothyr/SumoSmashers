@@ -8,24 +8,21 @@ public class PlayerController : MonoBehaviour
     public UnityEvent deathEvent;
     
     public PlayerData playerData;
-    public Rigidbody2D playerRB;
+    public CharacterController playerCharacterController;
 
     private InputActions inputActions;
-    private Vector2 inputMoveVector;
-    private Vector2 inputAimVector;
+    private Vector3 moveDirection;
+    private Vector2 inputVector;
     private Vector2 currentLocation;
 
     private float speed;
-    private float damage;
-    private float health;
-    private float currentHealth;
+    private float knockbackPower;
     
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
     {
-        playerRB = GetComponent<Rigidbody2D>();
-        
+        playerCharacterController = GetComponent<CharacterController>();
         
         inputActions = new InputActions();
         
@@ -34,39 +31,18 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.performed += StartMove;
         inputActions.Player.Move.canceled += StopMove;
         
-        /*inputActions.Player.Aim.performed += StartFiring;
-        inputActions.Player.Aim.canceled += StopFiring;*/
-        
         speed = playerData.speed;
-        damage = playerData.damage;
-        health = playerData.health;
     }
 
-    private void StartFiring(InputAction.CallbackContext context)
-    {
-        inputAimVector = context.ReadValue<Vector2>();
-        playerData.aimDirection.SetValue(inputAimVector.x,inputAimVector.y);
-        if (playerData.canRun.value)
-        {
-            playerData.isFiring.value = true;
-        }
-    }
-
-    private void StopFiring(InputAction.CallbackContext context)
-    {
-        playerData.aimDirection.SetValue(0,0);
-        playerData.isFiring.value = false;
-    } 
-    
     private void StartMove(InputAction.CallbackContext context)
     {
-        inputMoveVector = context.ReadValue<Vector2>();
+        inputVector = context.ReadValue<Vector2>();
         StartCoroutine(Move());
     }
 
     private void StopMove(InputAction.CallbackContext context)
     {
-        inputMoveVector = context.ReadValue<Vector2>();
+        inputVector = context.ReadValue<Vector2>();
         StopCoroutine(Move());
     }
 
@@ -74,30 +50,22 @@ public class PlayerController : MonoBehaviour
     {
         while (playerData.canRun.value)
         {
-            currentLocation = playerRB.position;
-            playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
-            playerRB.MovePosition(currentLocation + inputMoveVector * (playerData.speed * Time.deltaTime));
+            moveDirection = new Vector3(inputVector.x, 0, inputVector.y)*Time.deltaTime;
+            playerCharacterController.Move(moveDirection);
+            //currentLocation = playerRB.position;
+            //playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
+            //playerRB.MovePosition(currentLocation + inputMoveVector * (playerData.speed * Time.deltaTime));
             yield return wffuObj;
         }
     }
 
     public void SetCurrentV3()
     {
-        currentLocation = playerRB.position;
+        //currentLocation = playerRB.position;
+        currentLocation = playerCharacterController.center;
         playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
     }
-    
-    public void DamagePlayer(float damageTaken)
-    {
-        currentHealth -= damageTaken;
-        health = currentHealth;
-        
-        if (health <= 0)
-        {
-            GameOver();
-        }
-    }
-    
+
     private void GameOver()
     {
         playerData.gameOver.SetTrue();
