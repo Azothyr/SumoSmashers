@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 363657052}
   - component: {fileID: 363657054}
   - component: {fileID: 363657055}
+  - component: {fileID: 363657056}
   m_Layer: 0
   m_Name: KillZone
   m_TagString: Untagged
@@ -196,6 +197,22 @@ MonoBehaviour:
           m_StringArgument: Trigger
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &363657056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363657051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e3b947a7db5de47bc13a260a7360c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idObj: {fileID: 0}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &493224352
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +693,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -742,13 +760,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.31694138, y: -0.3594604, z: 0.13128144, w: 0.86781424}
-  m_LocalPosition: {x: 15.79, y: 12.68, z: -15.83}
+  m_LocalPosition: {x: 10, y: 12.68, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40.126, y: -45, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0708ee71cefaf146b5604b1a285fd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 675921012}
 --- !u!1 &1173311913
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +883,7 @@ GameObject:
   - component: {fileID: 1293146602}
   - component: {fileID: 1293146601}
   - component: {fileID: 1293146603}
+  - component: {fileID: 1293146604}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -917,6 +949,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 0.01
+--- !u!114 &1293146604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293146599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90e4cdf845d4ff429959be44ad369d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1293146603}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  gameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
+  navAgentBehaviour: {fileID: 0}
 --- !u!1 &1312523252
 GameObject:
   m_ObjectHideFlags: 0

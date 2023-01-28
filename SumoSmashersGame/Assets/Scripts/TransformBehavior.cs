@@ -27,7 +27,7 @@ public class TransformBehavior : MonoBehaviour
         while (canRun.value)
         {
             SetV3Value();
-            yield return new WaitForFixedUpdate();
+            yield return wffu;
         }
     }
     
