@@ -1,7 +1,11 @@
 using System.Collections;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,15 +13,16 @@ public class PlayerController : MonoBehaviour
     
     public PlayerData playerData;
     public Rigidbody playerRB;
+    public Vector3 velocity;
 
     private InputActions inputActions;
-    private Vector3 moveDirection;
-    private Vector3 currentLocation;
-    private Vector3 skew;
+    private Vector3 moveDirection, currentLocation;
+    private Quaternion skew;
     private Vector2 inputVector;
 
-    private float speed;
-    private float knockbackPower;
+    private float speed, knockbackPower, negativeTopSpeed;
+
+    [SerializeField] float topSpeed;
     
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
@@ -29,13 +34,23 @@ public class PlayerController : MonoBehaviour
         
         inputActions.Player.Enable();
         
+        inputActions.Player.Touch.performed += StartTouch;
+        //inputActions.Player.Touch.canceled += StopTouch;
+        
         inputActions.Player.Move.performed += StartMove;
         inputActions.Player.Move.canceled += StopMove;
         
         
-        speed = playerData.speed;
+        speed = (float) (playerData.speed * 0.1);
+        negativeTopSpeed = topSpeed * -1;
     }
 
+    private void StartTouch(InputAction.CallbackContext context)
+    {
+        inputVector = context.ReadValue<Vector2>();
+        print(inputVector);
+    }
+    
     private void StartMove(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
@@ -53,14 +68,41 @@ public class PlayerController : MonoBehaviour
         while (playerData.canRun.value)
         {
             moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-            skew = Quaternion.Euler(new Vector3(0, -45, 0)) * moveDirection;
-            SetCurrentV3();
-            playerRB.AddForce(skew * (playerData.speed * Time.deltaTime));
+            skew = Quaternion.Euler(new Vector3(0, -45, 0));
+            playerRB.AddForce(skew * (moveDirection * speed));
+
+            if (playerRB.velocity.x > topSpeed)
+            {
+                playerRB.velocity = new Vector3(topSpeed, playerRB.velocity.y, playerRB.velocity.z);
+            }
+            
+            if (playerRB.velocity.x < negativeTopSpeed)
+            {
+                playerRB.velocity = new Vector3(negativeTopSpeed, playerRB.velocity.y, playerRB.velocity.z);
+            }
+            
+            if (playerRB.position.y > 0)
+            {
+                playerRB.position = new Vector3(playerRB.position.x, 0, playerRB.position.z);
+            }
+            
+            if (playerRB.velocity.z > topSpeed)
+            {
+                playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, topSpeed);
+            }
+            
+            if (playerRB.velocity.z < negativeTopSpeed)
+            {
+                playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, negativeTopSpeed);
+            }
+            
+            velocity = playerRB.velocity;
+            
             yield return wffuObj;
         }
     }
 
-    public void SetCurrentV3()
+    private void SetCurrentV3()
     {
         currentLocation = playerRB.position;
         playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, currentLocation.z);

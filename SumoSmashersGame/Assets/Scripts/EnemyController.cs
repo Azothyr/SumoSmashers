@@ -43,15 +43,6 @@ public class EnemyController : MonoBehaviour
         navAgentBehaviour.SetToCurrentLocation();
         GameOverCheck();
     }
-    
-    /*public void OnTriggerEnter2D(Collider2D other)
-    {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player != null)
-        {
-            player.DamagePlayer(damage);
-        }
-    }*/
 
     private void GameOverCheck()
     {
