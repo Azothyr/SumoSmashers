@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,5 +11,10 @@ public class DestroyBehavior : MonoBehaviour
         wfsObj = new WaitForSeconds(seconds);
         yield return wfsObj;
         Destroy(gameObject);
+    }
+
+    public void SetTimeToDestroy(float num)
+    {
+        seconds = num;
     }
 }

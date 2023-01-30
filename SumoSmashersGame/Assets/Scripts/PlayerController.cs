@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -108,9 +107,8 @@ public class PlayerController : MonoBehaviour
         playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, currentLocation.z);
     }
 
-    private void GameOver()
+    public void GameOverEvent()
     {
-        playerData.gameOver.SetTrue();
         deathEvent.Invoke();
     }
 }

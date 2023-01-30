@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
-    public UnityEvent deathEvent, gameOverEvent;
+    public UnityEvent gameOverEvent;
     
     private bool canRun;
     private float damage, health, speed;
@@ -46,8 +46,9 @@ public class EnemyController : MonoBehaviour
 
     private void GameOverCheck()
     {
-        if (enemyData.gameOver.value)
+        if (!enemyData.canRun.value)
         {
+            StopCoroutine(Pursuit());
             gameOverEvent.Invoke();
         }
     }
