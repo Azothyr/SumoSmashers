@@ -8,7 +8,7 @@ public class CamBehavior : MonoBehaviour
     private Vector3 initialCamPosition;
     
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
-    
+
     private void Awake()
     {
         initialCamPosition = transform.position;
@@ -17,7 +17,7 @@ public class CamBehavior : MonoBehaviour
 
     private IEnumerator FollowPlayer(Vector3 camDistance)
     {
-        while(true)
+        while(player)
         {
             transform.position = camDistance + player.transform.position;
             yield return wffuObj;

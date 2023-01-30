@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2257305119793489498}
-  - component: {fileID: 2257305119793489496}
+  - component: {fileID: 5936936584124063510}
   - component: {fileID: 2257305119793489499}
   - component: {fileID: 2257305119793489497}
   - component: {fileID: 2257305119793489502}
@@ -120,7 +120,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2257305119793489496
+--- !u!54 &5936936584124063510
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2257305119793489493}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d9d94d5b275eabb4db98b489ff6d4f76, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -177,20 +177,48 @@ MonoBehaviour:
   gameOverEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2257305119793489502}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2257305119793489497}
+        m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
+        m_MethodName: SetTimeToDestroy
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.01
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2257305119793489497}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  deathTriggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2257305119793489497}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
-  navAgentBehaviour: {fileID: 0}
+  enemyRB: {fileID: 5936936584124063510}
+  playerV3: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}
 --- !u!114 &2257305119793489503
 MonoBehaviour:
   m_ObjectHideFlags: 0

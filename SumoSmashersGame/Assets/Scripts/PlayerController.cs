@@ -6,16 +6,17 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     public UnityEvent deathEvent;
     
     public PlayerData playerData;
-    public Rigidbody playerRB;
     public Vector3 velocity;
 
+    private Rigidbody playerRB;
     private InputActions inputActions;
-    private Vector3 moveDirection, currentLocation;
+    private Vector3 inputDirection, moveDirection, currentLocation;
     private Quaternion skew;
     private Vector2 inputVector;
 
@@ -28,31 +29,28 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
+        SetCurrentV3();
+        AllowMovement();
         
         inputActions = new InputActions();
         
         inputActions.Player.Enable();
-        
-        inputActions.Player.Touch.performed += StartTouch;
-        //inputActions.Player.Touch.canceled += StopTouch;
-        
-        inputActions.Player.Move.performed += StartMove;
+
+        inputActions.Player.Move.performed += StartMoveInput;
         inputActions.Player.Move.canceled += StopMove;
         
         
-        speed = (float) (playerData.speed * 0.1);
+        speed = playerData.speed;
         negativeTopSpeed = topSpeed * -1;
     }
-
-    private void StartTouch(InputAction.CallbackContext context)
-    {
-        inputVector = context.ReadValue<Vector2>();
-        print(inputVector);
-    }
     
-    private void StartMove(InputAction.CallbackContext context)
+    private void StartMoveInput(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
+    }
+
+    public void AllowMovement()
+    {
         StartCoroutine(Move());
     }
 
@@ -66,37 +64,39 @@ public class PlayerController : MonoBehaviour
     {
         while (playerData.canRun.value)
         {
-            moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
             skew = Quaternion.Euler(new Vector3(0, -45, 0));
-            playerRB.AddForce(skew * (moveDirection * speed));
+            inputDirection = new Vector3(inputVector.x, 0, inputVector.y).normalized;
+            moveDirection = (skew * inputDirection);
+            playerRB.AddForce(moveDirection * speed, ForceMode.Acceleration);
 
             if (playerRB.velocity.x > topSpeed)
             {
                 playerRB.velocity = new Vector3(topSpeed, playerRB.velocity.y, playerRB.velocity.z);
             }
-            
+
             if (playerRB.velocity.x < negativeTopSpeed)
             {
                 playerRB.velocity = new Vector3(negativeTopSpeed, playerRB.velocity.y, playerRB.velocity.z);
             }
-            
+
             if (playerRB.position.y > 0)
             {
                 playerRB.position = new Vector3(playerRB.position.x, 0, playerRB.position.z);
             }
-            
+
             if (playerRB.velocity.z > topSpeed)
             {
                 playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, topSpeed);
             }
-            
+
             if (playerRB.velocity.z < negativeTopSpeed)
             {
                 playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, negativeTopSpeed);
             }
-            
+
             velocity = playerRB.velocity;
-            
+
+            SetCurrentV3();
             yield return wffuObj;
         }
     }

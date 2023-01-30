@@ -2,28 +2,29 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyController : MonoBehaviour
 {
-    public UnityEvent gameOverEvent;
+    public UnityEvent gameOverEvent, deathTriggerEvent;
     
-    private bool canRun;
-    private float damage, health, speed;
-    private Vector2 moveDirection;
-    private Vector3 playerLocation;
-    
-
     public EnemyData enemyData;
-    public NavAgentBehaviour navAgentBehaviour;
-    
-    
+    public Rigidbody enemyRB;
+    public Vector3Data playerV3;
+
+    private bool canRun, gameOver;
+    private float knockbackPower, speed;
+    private Vector3 moveDirection, playerLocation;
+
     private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
+    
     private void Awake()
     {
-        navAgentBehaviour = GetComponent<NavAgentBehaviour>();
+        enemyRB = GetComponent<Rigidbody>();
         
         speed = enemyData.speed;
+        knockbackPower = enemyData.knockbackPower;
+        gameOver = enemyData.gameOver.value;
         
-        navAgentBehaviour.SetMovementVariables(speed);
         StartPursuit();
     }
     
@@ -32,21 +33,32 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(Pursuit());
     }
     
+    public void TriggerDeath()
+    {
+        deathTriggerEvent.Invoke();
+    }
+    
     private IEnumerator Pursuit()
     {
         while (enemyData.canRun.value)
         { 
-            navAgentBehaviour.SetV3ToPlayer();
+            playerLocation = playerV3.value;
+            moveDirection = (playerLocation - transform.position).normalized;
+            enemyRB.AddForce(moveDirection * speed, ForceMode.Acceleration);
+
+            if (enemyRB.position.y > 0)
+            {
+                enemyRB.position = new Vector3(enemyRB.position.x, 0, enemyRB.position.z);
+            }
             
             yield return wffuObj;
         }
-        navAgentBehaviour.SetToCurrentLocation();
         GameOverCheck();
     }
 
     private void GameOverCheck()
     {
-        if (!enemyData.canRun.value)
+        if (gameOver)
         {
             StopCoroutine(Pursuit());
             gameOverEvent.Invoke();
