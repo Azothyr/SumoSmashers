@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2257305118313193322}
   - component: {fileID: 2257305118313193321}
   - component: {fileID: 2257305118313193320}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2257305119793489497}
   - component: {fileID: 2257305119793489502}
   - component: {fileID: 2257305119793489503}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2257305119793489493}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a044d84b1f53f93479080f745b1608a0, type: 3}
   m_Name: 

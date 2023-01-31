@@ -7,20 +7,21 @@ using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ICollidable
 {
     public UnityEvent deathEvent;
     
     public PlayerData playerData;
     public Vector3 velocity;
+    private ICollidable collidable;
 
     private Rigidbody playerRB;
     private InputActions inputActions;
     private Vector3 inputDirection, moveDirection, currentLocation;
-    private Quaternion skew;
+    private Quaternion skew = Quaternion.Euler(new Vector3(0, -45, 0));
     private Vector2 inputVector;
 
-    private float speed, knockbackPower, negativeTopSpeed;
+    private float speed, knockBackPower, knockBackResistance, negativeTopSpeed;
 
     [SerializeField] float topSpeed;
     
@@ -39,9 +40,9 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.performed += StartMoveInput;
         inputActions.Player.Move.canceled += StopMove;
         
-        
         speed = playerData.speed;
         negativeTopSpeed = topSpeed * -1;
+        knockBackResistance = playerData.knockBackResistance;
     }
     
     private void StartMoveInput(InputAction.CallbackContext context)
@@ -64,7 +65,6 @@ public class PlayerController : MonoBehaviour
     {
         while (playerData.canRun.value)
         {
-            skew = Quaternion.Euler(new Vector3(0, -45, 0));
             inputDirection = new Vector3(inputVector.x, 0, inputVector.y).normalized;
             moveDirection = (skew * inputDirection);
             playerRB.AddForce(moveDirection * speed, ForceMode.Acceleration);
@@ -110,6 +110,18 @@ public class PlayerController : MonoBehaviour
     public void GameOverEvent()
     {
         deathEvent.Invoke();
+    }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        knockBackPower = playerData.knockBackPower;
+        collidable = other.collider.GetComponent<ICollidable>();
+        collidable?.KnockBack(knockBackPower, currentLocation);
+    }
+
+    public void KnockBack(float amount, Vector3 otherObjVector3)
+    {
+        playerRB.AddForce((currentLocation - otherObjVector3) * (amount - knockBackResistance), ForceMode.Impulse);
     }
 }
 

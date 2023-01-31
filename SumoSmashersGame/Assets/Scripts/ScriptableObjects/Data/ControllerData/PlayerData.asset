@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5966fff156424d740bed5c0cbcc24b88, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  name: 
   speed: 10
-  knockbackPower: 0
+  knockBackPower: 2
+  knockBackResistance: 0
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
   gameOver: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
   v3Position: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}
