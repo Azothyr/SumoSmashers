@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5a2ae5694f25e418733b8f3592c7c8, type: 3}
   m_Name: DefaultEnemyData
   m_EditorClassIdentifier: 
+  id: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
   speed: 10
   knockBackPower: 1
   knockBackResistance: 0

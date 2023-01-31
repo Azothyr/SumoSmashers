@@ -21,8 +21,7 @@ public class EnemyController : MonoBehaviour, ICollidable
     private void Awake()
     {
         enemyRB = GetComponent<Rigidbody>();
-
-        currentLocation = enemyRB.position;
+        
         speed = enemyData.speed;
         gameOver = enemyData.gameOver.value;
         
@@ -43,6 +42,8 @@ public class EnemyController : MonoBehaviour, ICollidable
     {
         while (enemyData.canRun.value)
         { 
+            SetCurrentV3();
+            
             playerLocation = playerV3.value;
             moveDirection = (playerLocation - transform.position).normalized;
             enemyRB.AddForce(moveDirection * speed, ForceMode.Acceleration);
@@ -51,9 +52,7 @@ public class EnemyController : MonoBehaviour, ICollidable
             {
                 enemyRB.position = new Vector3(currentLocation.x, 0, currentLocation.z);
             }
-            
-            SetCurrentV3();
-            
+
             yield return wffuObj;
         }
         GameOverCheck();

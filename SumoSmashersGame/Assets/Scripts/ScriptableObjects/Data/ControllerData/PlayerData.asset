@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5966fff156424d740bed5c0cbcc24b88, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  id: {fileID: 11400000, guid: 3987f71a6c4d6d6409289705d4f2df4b, type: 2}
   speed: 10
   knockBackPower: 2
   knockBackResistance: 0
