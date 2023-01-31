@@ -5,16 +5,10 @@ public class SimpleSpawnBehavior : MonoBehaviour
 {
     public Instancer instancer;
     public Vector3 spawnLocation;
-    
-    void Start()
-    {
-        Spawn();
-    }
 
-    private void Spawn()
+    public void Spawn()
     {
-        spawnLocation = new Vector3(5, 0, -5);
-        Debug.Log("instancing");
+        spawnLocation = new Vector3(-5, 0, 5);
         instancer.CreateInstance(spawnLocation);
     }
 }

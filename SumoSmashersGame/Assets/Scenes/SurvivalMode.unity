@@ -917,6 +917,31 @@ MonoBehaviour:
   startGameEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2257305119793489497, guid: e36346424d4e4cf4eb73d10ce1704248,
+          type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
+        m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
+        m_MethodName: SetFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
         m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
         m_MethodName: SetTrue
@@ -1417,7 +1442,7 @@ GameObject:
   - component: {fileID: 2092988411}
   - component: {fileID: 2092988412}
   m_Layer: 0
-  m_Name: InstancerHandler
+  m_Name: SpawnHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

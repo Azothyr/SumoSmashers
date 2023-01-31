@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public UnityEvent startGameEvent, pauseGameEvent, gameOverEvent, restartGameEvent;
+
+    private void Start()
+    {
+        StartGame();
+    }
 
     public void StartGame()
     {
