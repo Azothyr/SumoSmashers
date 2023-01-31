@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: 3987f71a6c4d6d6409289705d4f2df4b, type: 2}
   speed: 10
-  knockBackPower: 2
+  knockBackPower: 5
   knockBackResistance: 0
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
   gameOver: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}

@@ -5,15 +5,15 @@ using Random = UnityEngine.Random;
 
 public class SpawnBehavior : MonoBehaviour
 {
-    public UnityEvent spawnEvent, endSpawnEvent;
+    public UnityEvent onSpawnEvent, endSpawnEvent;
     public Instancer instancer;
-    public Vector3Data playerV3, spawnLocation;
+    public Vector3Data spawnPointCenterV3, spawnLocation;
     public BoolData canRun;
     public IntData spawnCount, enemiesAlive, roundNum, roundSpawnIncrease, spawnBase, difficultySpawnModifier;
     public FloatData timeElapsed, roundSpawnModifier;
     public float distanceMin, distanceMax, spawnDelay;
 
-    private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2;
+    private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2, num3;
     private int timeDifficultyModifier, roundModifier, count;
     private Vector3 spawnV3, randomV3, playerLoc;
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
@@ -37,6 +37,7 @@ public class SpawnBehavior : MonoBehaviour
     
     private Vector3 GenerateSpawnV3Value(float rangeFromObjectMin, float rangeFromObjectMax)
     {
+        
         lowerRangeMin = (-1 * rangeFromObjectMax);
         upperRangeMax = rangeFromObjectMax;
         lowerRangeMax = (-1 * rangeFromObjectMin);
@@ -48,19 +49,22 @@ public class SpawnBehavior : MonoBehaviour
             num1 = Random.Range(lowerRangeMin, upperRangeMax);
         }       
         
-        while (!(num2 >= lowerRangeMin && num2 <= lowerRangeMax || 
-                 num2 >= upperRangeMin && num2 <= upperRangeMax))
+        while (!(num3 >= lowerRangeMin && num3 <= lowerRangeMax || 
+                 num3 >= upperRangeMin && num3 <= upperRangeMax))
         {
-            num2 = Random.Range(lowerRangeMin, upperRangeMax);
+            num3 = Random.Range(lowerRangeMin, upperRangeMax);
         }
-        playerV3.GetValue();
+        spawnPointCenterV3.GetValue();
         
-        num1 += playerV3.value.x;
-        num2 += playerV3.value.y;
-        randomV3 = new Vector3(num1,num2,0);
+        num1 += spawnPointCenterV3.value.x;
+        num2 += spawnPointCenterV3.value.y;
+        num3 += spawnPointCenterV3.value.z;
+        
+        randomV3 = new Vector3(num1, num2, num3);
 
         num1 = new float();
         num2 = new float();
+        num3 = new float();
         
         return randomV3;
     }
@@ -89,7 +93,7 @@ public class SpawnBehavior : MonoBehaviour
                 
             enemiesAlive.UpdateValue(1);
             spawnCount.UpdateValue(-1);
-            spawnEvent.Invoke();
+            onSpawnEvent.Invoke();
             yield return wfsObj;
         }
         endSpawnEvent.Invoke();

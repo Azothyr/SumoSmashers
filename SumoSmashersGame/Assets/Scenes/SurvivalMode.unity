@@ -930,6 +930,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: c22aa56e3f7c0a0458293bbc4eecf999, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
         m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
         m_MethodName: SetFalse
@@ -957,6 +969,18 @@ MonoBehaviour:
       - m_Target: {fileID: 675921015}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: AllowMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2092988413}
+        m_TargetAssemblyTypeName: SpawnBehavior, Assembly-CSharp
+        m_MethodName: StartSpawning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1441,6 +1465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092988411}
   - component: {fileID: 2092988412}
+  - component: {fileID: 2092988413}
   m_Layer: 0
   m_Name: SpawnHandler
   m_TagString: Untagged
@@ -1477,6 +1502,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instancer: {fileID: 11400000, guid: 5d2d36c33540f4647ac1fb20f0eb5fb0, type: 2}
   spawnLocation: {x: 5, y: 0, z: -5}
+--- !u!114 &2092988413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092988410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93edce60cb053464da0b2315bb97931a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSpawnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c22aa56e3f7c0a0458293bbc4eecf999, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: UpdateValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  instancer: {fileID: 11400000, guid: 5d2d36c33540f4647ac1fb20f0eb5fb0, type: 2}
+  spawnPointCenterV3: {fileID: 11400000, guid: 0d47b681dc03e7840901ca2abba4c167, type: 2}
+  spawnLocation: {fileID: 11400000, guid: 593b448577992ba459125d574d9185e0, type: 2}
+  canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
+  spawnCount: {fileID: 11400000, guid: c22aa56e3f7c0a0458293bbc4eecf999, type: 2}
+  enemiesAlive: {fileID: 11400000, guid: f9a68ea629badff42bde40f8066b2472, type: 2}
+  roundNum: {fileID: 11400000, guid: 434a74c4b15e2a04d9d83756ff7e80d5, type: 2}
+  roundSpawnIncrease: {fileID: 11400000, guid: 4a934ee59f9ca1342b680a0742c31928, type: 2}
+  spawnBase: {fileID: 11400000, guid: f2fc0e8cb14abcd4a8dd26eaa965b0e8, type: 2}
+  difficultySpawnModifier: {fileID: 11400000, guid: e2e041eccd5dc78408b12c1d2311fef3,
+    type: 2}
+  timeElapsed: {fileID: 11400000, guid: 6893b360edc14e640a5f1e9eabb60a26, type: 2}
+  roundSpawnModifier: {fileID: 11400000, guid: 71c456ae0e155584b988d7fed079fbb3, type: 2}
+  distanceMin: 2
+  distanceMax: 5
+  spawnDelay: 2
 --- !u!1 &2106179004
 GameObject:
   m_ObjectHideFlags: 0
