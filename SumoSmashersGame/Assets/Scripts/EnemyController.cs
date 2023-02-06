@@ -7,7 +7,7 @@ public class EnemyController : ControllerBase
     
     private Vector3 playerLocation;
     
-    public override void Awake()
+    protected override void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         
@@ -15,13 +15,7 @@ public class EnemyController : ControllerBase
         
         StartMovement();
     }
-
-    public override void Pause()
-    {
-        rigidBody.position = currentLocation;
-        StopCoroutine(Move());
-    }
-
+    
     protected override IEnumerator Move()
     {
         while (controllerData.canRun.value)
@@ -40,7 +34,5 @@ public class EnemyController : ControllerBase
             yield return wffuObj;
         }
     }
-    
-    
 }
 

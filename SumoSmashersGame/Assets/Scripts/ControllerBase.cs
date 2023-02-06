@@ -6,33 +6,31 @@ using UnityEngine.Events;
 [RequireComponent(typeof(DestroyBehavior))]
 public abstract class ControllerBase : MonoBehaviour, ICollidable
 {
-    public UnityEvent deathTriggerEvent;
+    public UnityEvent deathTriggerEvent, onPauseEvent;
 
     public CharacterData controllerData;
     public Rigidbody rigidBody;
     
     protected ICollidable collidable;
-    protected float knockBackPower, speed, knockBackResistance;
+    protected float speed, topSpeed, knockBackPower, knockBackResistance;
     protected Vector3 moveDirection, currentLocation;
     protected WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
-    public abstract void Awake();
-
-    protected void StartMovement()
+    protected abstract void Awake();
+    
+    public void StartMovement()
     {
         StartCoroutine(Move());
     }
 
-    protected void StopMovement()
+    public void StopMovement()
     {
         StopCoroutine(Move());
     }
 
     protected abstract IEnumerator Move();
-    
-    public abstract void Pause();
 
-    protected void SetCurrentV3()
+    protected virtual void SetCurrentV3()
     {
         currentLocation = rigidBody.position;
     }
@@ -53,5 +51,10 @@ public abstract class ControllerBase : MonoBehaviour, ICollidable
     public void TriggerDeathEvent()
     {
         deathTriggerEvent.Invoke();
+    }
+    
+    public void PauseEvent()
+    {
+        onPauseEvent.Invoke();
     }
 }

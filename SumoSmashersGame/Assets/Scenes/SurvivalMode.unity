@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21044af7fc83ece448670a8ae3e4e6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEvent:
+  deathTriggerEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 675921018}
@@ -412,9 +412,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  playerData: {fileID: 11400000, guid: 8fb3345798460394fa6afcdbf1eed886, type: 2}
+  onPauseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  controllerData: {fileID: 11400000, guid: 8fb3345798460394fa6afcdbf1eed886, type: 2}
+  rigidBody: {fileID: 675921016}
   velocity: {x: 0, y: 0, z: 0}
-  topSpeed: 3
 --- !u!54 &675921016
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -456,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a044d84b1f53f93479080f745b1608a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 1
+  seconds: 0.01
 --- !u!114 &675921019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,10 +933,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: c22aa56e3f7c0a0458293bbc4eecf999, type: 2}
-        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
-        m_MethodName: SetValue
-        m_Mode: 3
+      - m_Target: {fileID: 675921018}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -942,10 +945,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
-        m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
-        m_MethodName: SetFalse
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: c22aa56e3f7c0a0458293bbc4eecf999, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -966,9 +969,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 675921015}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: AllowMovement
+      - m_Target: {fileID: 2092988413}
+        m_TargetAssemblyTypeName: SpawnBehavior, Assembly-CSharp
+        m_MethodName: StartSpawning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -978,9 +981,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2092988413}
-        m_TargetAssemblyTypeName: SpawnBehavior, Assembly-CSharp
-        m_MethodName: StartSpawning
+      - m_Target: {fileID: 675921015}
+        m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
+        m_MethodName: StartMovement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

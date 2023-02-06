@@ -5,6 +5,6 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public ID id;
-    public float speed, knockBackPower, knockBackResistance;
-    public BoolData canRun, gameOver;
+    public float speed, topSpeed, knockBackPower, knockBackResistance;
+    public BoolData canRun;
 }
