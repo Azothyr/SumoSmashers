@@ -156,7 +156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2257305119793489493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a044d84b1f53f93479080f745b1608a0, type: 3}
   m_Name: 
@@ -174,21 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90e4cdf845d4ff429959be44ad369d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2257305119793489497}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   deathTriggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -204,8 +189,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
-  enemyRB: {fileID: 5936936584124063510}
+  controllerData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
+  rigidBody: {fileID: 5936936584124063510}
   playerV3: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}
 --- !u!114 &2257305119793489503
 MonoBehaviour:

@@ -2,9 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour, ICollidable

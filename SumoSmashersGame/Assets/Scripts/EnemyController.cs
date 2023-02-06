@@ -1,88 +1,46 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody))]
-public class EnemyController : MonoBehaviour, ICollidable
+public class EnemyController : ControllerBase
 {
-    public UnityEvent gameOverEvent, deathTriggerEvent;
-    
-    public EnemyData enemyData;
-    public Rigidbody enemyRB;
     public Vector3Data playerV3;
     
-    private ICollidable collidable;
-    private bool canRun, gameOver;
-    private float knockBackPower, speed, knockBackResistance;
-    private Vector3 moveDirection, playerLocation, currentLocation;
+    private Vector3 playerLocation;
+    
+    public override void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        
+        speed = controllerData.speed;
+        
+        StartMovement();
+    }
 
-    private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
-    
-    private void Awake()
+    public override void Pause()
     {
-        enemyRB = GetComponent<Rigidbody>();
-        
-        speed = enemyData.speed;
-        gameOver = enemyData.gameOver.value;
-        
-        StartPursuit();
+        rigidBody.position = currentLocation;
+        StopCoroutine(Move());
     }
-    
-    public void StartPursuit()
+
+    protected override IEnumerator Move()
     {
-        StartCoroutine(Pursuit());
-    }
-    
-    public void TriggerDeath()
-    {
-        deathTriggerEvent.Invoke();
-    }
-    
-    private IEnumerator Pursuit()
-    {
-        while (enemyData.canRun.value)
+        while (controllerData.canRun.value)
         { 
             SetCurrentV3();
             
             playerLocation = playerV3.value;
             moveDirection = (playerLocation - transform.position).normalized;
-            enemyRB.AddForce(moveDirection * speed, ForceMode.Acceleration);
+            rigidBody.AddForce(moveDirection * speed, ForceMode.Acceleration);
 
-            if (enemyRB.position.y > 0)
+            if (rigidBody.position.y > 0)
             {
-                enemyRB.position = new Vector3(currentLocation.x, 0, currentLocation.z);
+                rigidBody.position = new Vector3(currentLocation.x, 0, currentLocation.z);
             }
 
             yield return wffuObj;
         }
-        GameOverCheck();
     }
-
-    private void SetCurrentV3()
-    {
-        currentLocation = enemyRB.position;
-    }
-
-    private void GameOverCheck()
-    {
-        if (gameOver)
-        {
-            StopCoroutine(Pursuit());
-            gameOverEvent.Invoke();
-        }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        knockBackPower = enemyData.knockBackPower;
-        collidable = other.collider.GetComponent<ICollidable>();
-        collidable?.KnockBack(knockBackPower, currentLocation);
-    }
-
-    public void KnockBack(float amount, Vector3 otherObjVector3)
-    {
-        knockBackResistance = enemyData.knockBackResistance;
-        enemyRB.AddForce((currentLocation - otherObjVector3) * (amount - knockBackResistance), ForceMode.Impulse);
-    }
+    
+    
 }
 
