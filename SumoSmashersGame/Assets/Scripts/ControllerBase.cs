@@ -55,6 +55,7 @@ public abstract class ControllerBase : MonoBehaviour, ICollidable
     
     public void PauseEvent()
     {
+        
         onPauseEvent.Invoke();
     }
 }
