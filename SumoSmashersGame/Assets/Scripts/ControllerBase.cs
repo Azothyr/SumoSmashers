@@ -10,8 +10,8 @@ public abstract class ControllerBase : MonoBehaviour, ICollidable
 
     public CharacterData controllerData;
     public Rigidbody rigidBody;
-    
-    protected ICollidable collidable;
+
+    private ICollidable collidable;
     protected float speed, topSpeed, knockBackPower, knockBackResistance;
     protected Vector3 moveDirection, currentLocation;
     protected WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();

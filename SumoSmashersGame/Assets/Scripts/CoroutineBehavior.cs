@@ -4,9 +4,8 @@ using UnityEngine.Events;
 
 public class CoroutineBehavior : MonoBehaviour
 {
-    public UnityEvent startEvent, startCountEvent,repeatCountEvent, endCountEvent, repeatUntilFalseEvent;
-
-    public bool CanRun { get; set; }
+    public UnityEvent startEvent, startCountEvent,repeatCountEvent, endCountEvent;
+    
     public IntData counterNum;
     public float seconds = 1.0f;
     private WaitForSeconds wfsObj;
@@ -34,20 +33,5 @@ public class CoroutineBehavior : MonoBehaviour
             yield return wfsObj;
         }
         endCountEvent.Invoke();
-    }
-    
-    private IEnumerator RepeatUntilFalse()
-    {
-        while (CanRun)
-        {
-            yield return wfsObj;
-            repeatUntilFalseEvent.Invoke();
-        }
-    }
-        
-    public void StartRepeatUntilFalse()
-    {
-        CanRun = true;
-        StartCoroutine(RepeatUntilFalse());
     }
 }
