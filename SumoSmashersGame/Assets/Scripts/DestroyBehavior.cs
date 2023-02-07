@@ -4,8 +4,5 @@ public class DestroyBehavior : MonoBehaviour
 {
     private float seconds;
 
-    public void TriggerDestroy()
-    {
-        DestroyImmediate(gameObject, true);
-    }
+    public void TriggerDestroy() => Destroy(gameObject);
 }
