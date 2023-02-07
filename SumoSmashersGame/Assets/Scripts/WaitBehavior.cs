@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class WaitBehavior : MonoBehaviour
 {
     public UnityEvent endWaitForSeconds, endWaitForZero;
-    public IntData intData;
 
     private int waitAmount;
     private WaitForSeconds wfsObj = new WaitForSeconds(1);
@@ -16,9 +15,9 @@ public class WaitBehavior : MonoBehaviour
         StartCoroutine(WaitForSecondsEvent(seconds));
     }
 
-    public void startWaitForZeroIntDataEvent()
+    public void startWaitForZeroIntDataEvent(IntData data)
     {
-        StartCoroutine(WaitForZeroIntDataEvent(intData));
+        StartCoroutine(WaitForZeroIntDataEvent(data));
     }
     
     private IEnumerator WaitForZeroIntDataEvent(IntData obj)
