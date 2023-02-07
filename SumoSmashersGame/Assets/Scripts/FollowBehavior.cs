@@ -4,7 +4,8 @@ using UnityEngine;
 public class FollowBehavior : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 initialPosition;
+    public bool yConstraint;
+    private Vector3 initialPosition, playerTransform, transformConstrain;
     
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
@@ -18,7 +19,16 @@ public class FollowBehavior : MonoBehaviour
     {
         while(player)
         {
-            transform.position = offsetDistance + player.transform.position;
+            playerTransform = player.transform.position;
+            if (yConstraint)
+            {
+                transformConstrain = new Vector3(playerTransform.x, offsetDistance.y, playerTransform.z);
+                transform.position = transformConstrain;
+            }
+            else
+            {
+                transform.position = offsetDistance + player.transform.position;
+            }
             yield return wffuObj;
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(DestroyBehavior))]
 public abstract class ControllerBase : MonoBehaviour, ICollidable
 {
-    public UnityEvent deathTriggerEvent, onPauseEvent;
+    public UnityEvent deathTriggerEvent;
 
     public CharacterData controllerData;
     public Rigidbody rigidBody;
@@ -53,9 +53,13 @@ public abstract class ControllerBase : MonoBehaviour, ICollidable
         deathTriggerEvent.Invoke();
     }
     
-    public void PauseEvent()
+    public void Pause()
     {
         
-        onPauseEvent.Invoke();
+    }
+    
+    public void UnPause()
+    {
+        
     }
 }

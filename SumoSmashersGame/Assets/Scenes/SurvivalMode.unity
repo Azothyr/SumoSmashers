@@ -182,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 363657051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 15, y: 1, z: 15}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 675921012}
+  yConstraint: 1
 --- !u!1 &375782456
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,9 +458,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  onPauseEvent:
-    m_PersistentCalls:
-      m_Calls: []
   controllerData: {fileID: 11400000, guid: 8fb3345798460394fa6afcdbf1eed886, type: 2}
   rigidBody: {fileID: 675921016}
   velocity: {x: 0, y: 0, z: 0}
@@ -825,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 675921012}
+  yConstraint: 0
 --- !u!1 &1173311913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,13 +1057,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 675921015}
+        m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
+        m_MethodName: TriggerDeathEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
