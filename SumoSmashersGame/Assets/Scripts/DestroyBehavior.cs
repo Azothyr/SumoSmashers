@@ -1,20 +1,11 @@
-using System.Collections;
 using UnityEngine;
 
 public class DestroyBehavior : MonoBehaviour
 {
-    public float seconds = 1;
-    private WaitForSeconds wfsObj;
+    private float seconds;
 
-    private IEnumerator Start()
+    public void TriggerDestroy()
     {
-        wfsObj = new WaitForSeconds(seconds);
-        yield return wfsObj;
-        Destroy(gameObject);
-    }
-
-    public void SetTimeToDestroy(float num)
-    {
-        seconds = num;
+        DestroyImmediate(gameObject, true);
     }
 }
