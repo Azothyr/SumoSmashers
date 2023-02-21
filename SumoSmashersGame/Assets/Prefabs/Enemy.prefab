@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2257305119793489498}
   - component: {fileID: 5936936584124063510}
   - component: {fileID: 2257305119793489499}
-  - component: {fileID: 2257305119793489503}
+  - component: {fileID: 4859577385032673770}
   - component: {fileID: 1785778385198667429}
   - component: {fileID: 3262661658726911215}
   m_Layer: 26
@@ -149,7 +149,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2257305119793489503
+--- !u!114 &4859577385032673770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,10 +158,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 2257305119793489493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb96fca7fb885c4c9eaa31105ce226c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0090fe8165df06c4eaff2b08e0b7ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   idObj: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
+  triggerEnterMatches:
+  - nameIdObj: {fileID: 11400000, guid: 265f81178ab81954ba80561c3ff1ff18, type: 2}
+    triggerEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3262661658726911215}
+          m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
+          m_MethodName: TriggerDeathEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1785778385198667429}
+          m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
+          m_MethodName: TriggerDestroy
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1785778385198667429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,18 +218,6 @@ MonoBehaviour:
   deathTriggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1785778385198667429}
-        m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
-        m_MethodName: TriggerDestroy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: b77bf0edc03a952448b1fded1a8859d3, type: 2}
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
         m_MethodName: RaiseAction

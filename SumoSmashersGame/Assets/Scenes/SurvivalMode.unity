@@ -1535,7 +1535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363657052}
   - component: {fileID: 363657054}
-  - component: {fileID: 363657055}
+  - component: {fileID: 363657057}
   - component: {fileID: 363657056}
   m_Layer: 0
   m_Name: KillZone
@@ -1572,53 +1572,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 10, z: 5}
   m_Center: {x: 0, y: -10, z: 0}
---- !u!114 &363657055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363657051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0090fe8165df06c4eaff2b08e0b7ac0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idObj: {fileID: 0}
-  triggerEnterMatches:
-  - nameIdObj: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
-    triggerEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3262661658726911215, guid: e36346424d4e4cf4eb73d10ce1704248,
-            type: 3}
-          m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
-          m_MethodName: TriggerDeathEvent
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - nameIdObj: {fileID: 11400000, guid: 3987f71a6c4d6d6409289705d4f2df4b, type: 2}
-    triggerEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1312523254}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: GameOver
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &363657056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1586,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 675921012}
   yConstraint: 1
+--- !u!114 &363657057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363657051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb96fca7fb885c4c9eaa31105ce226c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idObj: {fileID: 11400000, guid: 265f81178ab81954ba80561c3ff1ff18, type: 2}
 --- !u!1 &375782456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,15 +2529,27 @@ MonoBehaviour:
   deathTriggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 675921018}
-        m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
-        m_MethodName: TriggerDestroyCountDown
+      - m_Target: {fileID: 1312523254}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 675921018}
+        m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
+        m_MethodName: TriggerDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -2629,10 +2607,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 675921012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb96fca7fb885c4c9eaa31105ce226c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0090fe8165df06c4eaff2b08e0b7ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   idObj: {fileID: 11400000, guid: 3987f71a6c4d6d6409289705d4f2df4b, type: 2}
+  triggerEnterMatches:
+  - nameIdObj: {fileID: 11400000, guid: 265f81178ab81954ba80561c3ff1ff18, type: 2}
+    triggerEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 675921015}
+          m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
+          m_MethodName: TriggerDeathEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,18 +4183,6 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
         m_TargetAssemblyTypeName: BoolData, Assembly-CSharp
         m_MethodName: SetFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 675921015}
-        m_TargetAssemblyTypeName: ControllerBase, Assembly-CSharp
-        m_MethodName: TriggerDeathEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6335,18 +6318,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: -1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TextMeshProBehavior, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
