@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
   speed: 10
+  topSpeed: 0
   knockBackPower: 1
   knockBackResistance: 0
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
-  gameOver: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
+  gameOver: {fileID: 11400000, guid: 5d4fac3ed06493a45b0dd64891e51a48, type: 2}
   prefab: {fileID: 2257305119793489493, guid: e36346424d4e4cf4eb73d10ce1704248, type: 3}

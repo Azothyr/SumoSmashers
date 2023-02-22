@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : ControllerBase
 {
     public Vector3Data playerV3;
-    
+    public UnityEvent onGameOverEvent;
+
     private Vector3 playerLocation;
     
     protected override void Awake()
@@ -19,7 +21,7 @@ public class EnemyController : ControllerBase
     protected override IEnumerator Move()
     {
         while (controllerData.canRun.value)
-        { 
+        {
             SetCurrentV3();
             
             playerLocation = playerV3.value;
@@ -32,6 +34,15 @@ public class EnemyController : ControllerBase
             }
 
             yield return wffuObj;
+        }
+        GameOverCheck();
+    }
+
+    private void GameOverCheck()
+    {
+        if (controllerData.gameOver.value)
+        {
+            onGameOverEvent.Invoke();
         }
     }
 }

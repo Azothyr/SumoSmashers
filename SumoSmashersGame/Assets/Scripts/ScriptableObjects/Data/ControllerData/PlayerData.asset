@@ -18,3 +18,4 @@ MonoBehaviour:
   knockBackPower: 5
   knockBackResistance: 0
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
+  gameOver: {fileID: 11400000, guid: 5d4fac3ed06493a45b0dd64891e51a48, type: 2}

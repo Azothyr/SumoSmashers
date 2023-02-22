@@ -6,5 +6,5 @@ public class CharacterData : ScriptableObject
 {
     public ID id;
     public float speed, topSpeed, knockBackPower, knockBackResistance;
-    public BoolData canRun;
+    public BoolData canRun, gameOver;
 }
