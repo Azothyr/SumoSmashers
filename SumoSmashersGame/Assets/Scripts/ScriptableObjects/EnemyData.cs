@@ -4,4 +4,5 @@ using UnityEngine;
 public class EnemyData : CharacterData
 {
     public GameObject prefab;
+    public int value;
 }
