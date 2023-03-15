@@ -196,3 +196,9 @@ Received Import Request.
   path: Assets/Art/PSD/Button.psd
   artifactKey: Guid(d068d6135429b77418ff3c60ab4f707f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Art/PSD/Button.psd using Guid(d068d6135429b77418ff3c60ab4f707f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '796fb891c2583ea79854074d4d55b674') in 0.010870 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 146.174777 seconds.
+  path: Assets/Art/PSD/Title.psd
+  artifactKey: Guid(6d0e16184e5dafc4ea4b4464f60fab1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/PSD/Title.psd using Guid(6d0e16184e5dafc4ea4b4464f60fab1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82855ee716cde3fc7d1d17f70c1c8aff') in 0.014245 seconds 
