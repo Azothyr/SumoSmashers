@@ -202,3 +202,15 @@ Received Import Request.
   path: Assets/Art/PSD/Title.psd
   artifactKey: Guid(6d0e16184e5dafc4ea4b4464f60fab1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Art/PSD/Title.psd using Guid(6d0e16184e5dafc4ea4b4464f60fab1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82855ee716cde3fc7d1d17f70c1c8aff') in 0.014245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 166.088594 seconds.
+  path: Assets/Art/PSD/SumoSmashers ToDraw.psd
+  artifactKey: Guid(e9b45840bb6a79e4a947607e1f5bbc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/PSD/SumoSmashers ToDraw.psd using Guid(e9b45840bb6a79e4a947607e1f5bbc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c2e79c209fbc92e2cdbe67b540f9b87') in 0.008978 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.917273 seconds.
+  path: Assets/Art/PSD/SumoSmashersToDraw.psd
+  artifactKey: Guid(e9b45840bb6a79e4a947607e1f5bbc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/PSD/SumoSmashersToDraw.psd using Guid(e9b45840bb6a79e4a947607e1f5bbc73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308507ed278528fef52ff71804cc41a4') in 0.008114 seconds 
