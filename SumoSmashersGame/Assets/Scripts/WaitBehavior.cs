@@ -9,7 +9,7 @@ public class WaitBehavior : MonoBehaviour
     private int waitAmount;
     private WaitForSeconds wfsObj = new WaitForSeconds(1);
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
-    
+
     public void startWaitForSecondsEvent(int seconds)
     {
         StartCoroutine(WaitForSecondsEvent(seconds));
