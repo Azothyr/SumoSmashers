@@ -93,28 +93,6 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Button
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 830
-      width: 1621
-      height: 636
-    spriteID: 2534f1dd37b1c584fbe0dc26810c12c8
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 830}
-    spritePosition: {x: 213, y: 706}
   - name: MuteButton
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -123,7 +101,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 1474
+      y: 830
       width: 1621
       height: 636
     spriteID: 75169269e6d233a44a240cf95838669a
@@ -135,7 +113,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
+    uvTransform: {x: 4, y: 830}
+    spritePosition: {x: 213, y: 706}
+  - name: PauseButton
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1474
+      width: 1621
+      height: 636
+    spriteID: c9a93a19819932d4c884d0952529e48b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 4, y: 1474}
+    spritePosition: {x: 213, y: 706}
+  - name: Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2118
+      width: 1621
+      height: 636
+    spriteID: 2534f1dd37b1c584fbe0dc26810c12c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2118}
     spritePosition: {x: 213, y: 706}
   - name: Border
     originalName: 
@@ -189,23 +211,33 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Button
-    spriteName: Button
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 2534f1dd37b1c584fbe0dc26810c12c8
-    layerID: 99
-    mosaicPosition: {x: 4, y: 830}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
   - name: MuteButton
     spriteName: MuteButton
     isGroup: 0
     parentIndex: -1
     spriteID: 75169269e6d233a44a240cf95838669a
     layerID: 100
+    mosaicPosition: {x: 4, y: 830}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: PauseButton
+    spriteName: PauseButton
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c9a93a19819932d4c884d0952529e48b
+    layerID: 103
     mosaicPosition: {x: 4, y: 1474}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Button
+    spriteName: Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2534f1dd37b1c584fbe0dc26810c12c8
+    layerID: 99
+    mosaicPosition: {x: 4, y: 2118}
     flatten: 0
     isImported: 1
     isVisible: 1
