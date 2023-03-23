@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AudioBehavior : MonoBehaviour
 {
-    public string volume = "MasterVolume";
+    public string volume = "VolumeParameter";
     public AudioMixer mixer;
     public Slider slider;
     public float multiplier = 30f;
