@@ -31,5 +31,9 @@ public class IntData : ScriptableObject
     {
         value += num;
     }
-
+    
+    public void UpdateValue(IntData obj)
+    {
+        value += obj.value;
+    }
 }

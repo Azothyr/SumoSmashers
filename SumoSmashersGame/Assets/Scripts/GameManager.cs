@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public UnityEvent startGameEvent, pauseGameEvent, gameOverEvent, restartGameEvent;
+    public UnityEvent startGameEvent, gameOverEvent, restartGameEvent;
 
     private void Start()
     {
@@ -14,11 +14,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         startGameEvent.Invoke();
-    }
-
-    public void PauseGame()
-    {
-        pauseGameEvent.Invoke();
     }
 
     public void GameOver()
