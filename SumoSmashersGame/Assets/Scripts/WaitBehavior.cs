@@ -4,8 +4,9 @@ using UnityEngine.Events;
 
 public class WaitBehavior : MonoBehaviour
 {
+    [SerializeField] private string purpose;
     public UnityEvent endWaitForSeconds, endWaitForZero;
-
+    
     private int waitAmount;
     private WaitForSeconds wfsObj = new WaitForSeconds(1);
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
