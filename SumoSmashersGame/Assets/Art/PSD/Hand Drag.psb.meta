@@ -93,7 +93,51 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Layer 1
+  - name: Hand
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1036
+      width: 912
+      height: 423
+    spriteID: 63578cec9c41b964ea9489e392ad403e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1036}
+    spritePosition: {x: 81, y: 359}
+  - name: Phone
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1036
+      y: 4
+      width: 558
+      height: 688
+    spriteID: 4f0e29dbe399652479f58fa6acb69ac7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1036, y: 4}
+    spritePosition: {x: 0, y: 0}
+  - name: Layer 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -102,9 +146,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 0
-      height: 0
-    spriteID: 4c8d01535e8c294489c564a50c69fe63
+      width: 1024
+      height: 1024
+    spriteID: 723c53973f65c524c8feab3997b82561
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -114,7 +158,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 1024}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []
@@ -145,12 +189,52 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Layer 1
-    spriteName: Layer 1
+  - name: Hand
+    spriteName: Hand
     isGroup: 0
     parentIndex: -1
-    spriteID: 4c8d01535e8c294489c564a50c69fe63
-    layerID: 2
+    spriteID: 63578cec9c41b964ea9489e392ad403e
+    layerID: 19
+    mosaicPosition: {x: 4, y: 1036}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Phone
+    spriteName: Phone
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f0e29dbe399652479f58fa6acb69ac7
+    layerID: 14
+    mosaicPosition: {x: 1036, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ball
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8003577dc08e3b544a2a386ebbe9194e
+    layerID: 6
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Collision
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 878e4f4747326e54881032e7ece04bf1
+    layerID: 11
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Layer 2
+    spriteName: Layer 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 723c53973f65c524c8feab3997b82561
+    layerID: 17
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
