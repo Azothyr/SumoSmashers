@@ -93,29 +93,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Layer 6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 520
-      y: 4
-      width: 287
-      height: 441
-    spriteID: 13bd6f9d5356cbe4ca1c27356ea90ad9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 520, y: 4}
-    spritePosition: {x: 390, y: 341}
-  - name: Layer 5
+  - name: Skull
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -124,9 +102,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 508
-      height: 459
-    spriteID: d7e760dcbeba76240b781ea3180be5c9
+      width: 728
+      height: 785
+    spriteID: 9f6658efc4238ce48add0477f9d2e7eb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -136,7 +114,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 249, y: 337}
+    spritePosition: {x: 148, y: 119}
   characterData:
     bones: []
     parts: []
@@ -167,22 +145,12 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Layer 6
-    spriteName: Layer 6
+  - name: Skull
+    spriteName: Skull
     isGroup: 0
     parentIndex: -1
-    spriteID: 13bd6f9d5356cbe4ca1c27356ea90ad9
-    layerID: 14
-    mosaicPosition: {x: 520, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Layer 5
-    spriteName: Layer 5
-    isGroup: 0
-    parentIndex: -1
-    spriteID: d7e760dcbeba76240b781ea3180be5c9
-    layerID: 13
+    spriteID: 9f6658efc4238ce48add0477f9d2e7eb
+    layerID: 15
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
