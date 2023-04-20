@@ -4067,8 +4067,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493224352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 2.6342e-10, y: 0, z: 0}
+  m_LocalScale: {x: 0.49871376, y: 0.49871376, z: 0.49871376}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 675921013}
@@ -4123,7 +4123,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493224352}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 6033419024170142658, guid: f349be8f63b34d94880c3d822510cbdf, type: 3}
 --- !u!1 &509982070
 GameObject:
   m_ObjectHideFlags: 0
@@ -5653,7 +5653,7 @@ Transform:
   m_GameObject: {fileID: 675921012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 493224353}
@@ -10079,7 +10079,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 1
@@ -14587,8 +14587,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079932575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 15, y: 1, z: 15}
+  m_LocalPosition: {x: 0.000029619, y: -0.936, z: -0.00005924}
+  m_LocalScale: {x: 0.44136986, y: 0.8983194, z: 0.44136986}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -14643,7 +14643,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079932575}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2738560464989897843, guid: f349be8f63b34d94880c3d822510cbdf, type: 3}
 --- !u!64 &2079932580
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14657,7 +14657,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2738560464989897843, guid: f349be8f63b34d94880c3d822510cbdf, type: 3}
 --- !u!1 &2083745415
 GameObject:
   m_ObjectHideFlags: 0
