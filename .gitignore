@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+Assets/Plugins*
 
 # Visual Studio cache directory
 .vs/
@@ -36,3 +37,8 @@ sysinfo.txt
 *.unitypackage
 
 *.DS_Store
+
+
+*.idea
+
+*
