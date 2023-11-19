@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Linq;
 
 [System.Serializable] // This makes GameActionEvent visible in the inspector.
 public class GameActionEvent
@@ -9,10 +10,10 @@ public class GameActionEvent
     public UnityEvent onRaiseEvent;
 }
 
-
+[DisallowMultipleComponent]
 public class GameActionHandler: MonoBehaviour
 {
-    // This list will allow you to add multiple GameActionEvent objects from the inspector.
+    // This list allows adding multiple GameActionEvent objects from the inspector.
     public List<GameActionEvent> gameActions;
 
     private void OnEnable()
@@ -35,14 +36,10 @@ public class GameActionHandler: MonoBehaviour
 
     private void Raise(GameAction callingObj)
     {
-        // Invoke the corresponding UnityEvent for the raised GameAction.
-        foreach (var gameAction in gameActions)
-        {
-            if (gameAction.actionObj == callingObj)
-            {
-                gameAction.onRaiseEvent.Invoke();
-                break; // Once the correct action is found and invoked, no need to continue.
-            }
-        }
+        // Find the first matching GameAction
+        var gameAction = gameActions.FirstOrDefault(action => action.actionObj == callingObj);
+
+        // If found, invoke its onRaiseEvent
+        gameAction?.onRaiseEvent.Invoke();
     }
 }
