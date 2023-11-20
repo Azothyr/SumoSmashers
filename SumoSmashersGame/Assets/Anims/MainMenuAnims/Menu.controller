@@ -131,7 +131,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ToShopMenu
+    m_ConditionEvent: ToUpgradeMenu
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4473473057398755982}
@@ -357,7 +357,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: ToShopMenu
+  - m_Name: ToUpgradeMenu
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -461,7 +461,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShopMenu
+  m_Name: UpgradeMenu
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions: []
