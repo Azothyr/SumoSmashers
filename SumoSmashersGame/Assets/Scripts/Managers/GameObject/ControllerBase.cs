@@ -49,7 +49,7 @@ public abstract class ControllerBase : MonoBehaviour, ICollidable
         rigidBody.AddForce((currentLocation - otherObjVector3) * (amount - knockBackResistance), ForceMode.Impulse);
     }
     
-    public void TriggerDeathEvent()
+    public virtual void TriggerDeathEvent()
     {
         deathTriggerEvent.Invoke();
     }

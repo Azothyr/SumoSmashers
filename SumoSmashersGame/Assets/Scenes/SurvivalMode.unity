@@ -940,7 +940,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 55896632ad9b7f0448e9d3ee97363f9f, type: 2}
+      - m_Target: {fileID: 11400000, guid: 3205e366efe687243a22848d095a12e5, type: 2}
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
         m_MethodName: RaiseAction
         m_Mode: 1
@@ -5519,6 +5519,7 @@ GameObject:
   - component: {fileID: 675921015}
   - component: {fileID: 675921018}
   - component: {fileID: 675921019}
+  - component: {fileID: 675921020}
   m_Layer: 25
   m_Name: PlayerController
   m_TagString: Untagged
@@ -5705,6 +5706,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &675921020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675921012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d5cd78c9174eb4da6f818eae89be6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionalOccurrence: 0
+  counter: 0
+  upgradeOnAction: {fileID: 11400000, guid: 89a5eda0541450743be17a8550f5c673, type: 2}
+  upgrades:
+  - {fileID: 11400000, guid: eb651421a5ed211438733fcea3ed13c1, type: 2}
+  - {fileID: 11400000, guid: d21935433ce804342a85bcdb83ffb6e4, type: 2}
+  - {fileID: 11400000, guid: a49c35c3fca6dfa4cbc361a60ce1f07b, type: 2}
 --- !u!1 &687779387
 GameObject:
   m_ObjectHideFlags: 0
@@ -9983,7 +10003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0038a1b55aeefbf49b9af24fb5a81f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalDebug: 1
+  globalDebug: 0
 --- !u!1 &1411298390
 GameObject:
   m_ObjectHideFlags: 0
@@ -13987,11 +14007,12 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 434584928}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
+          m_MethodName: PlayOneShot
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 8300000, guid: 9ac4cc1456c616b41b26187561006c86,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -14051,25 +14072,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - actionObj: {fileID: 11400000, guid: 36e6fbf5975f4d14c8c5635d362ad81e, type: 2}
-    onRaiseEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - actionObj: {fileID: 11400000, guid: 7e9f26057596af74aa0dc317f9489ebb, type: 2}
-    onRaiseEvent:
-      m_PersistentCalls:
-        m_Calls: []
   - actionObj: {fileID: 11400000, guid: b77bf0edc03a952448b1fded1a8859d3, type: 2}
     onRaiseEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 434584927}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
+        - m_Target: {fileID: 434584928}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgument: {fileID: 8300000, guid: 48e3f6b3bf8603c47b1abf50d8c45918,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -14108,18 +14122,6 @@ MonoBehaviour:
               type: 2}
             m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
             m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 02e0d07fbbac453459b8f65e1542b76b, type: 2}
-          m_TargetAssemblyTypeName: IntData, Assembly-CSharp
-          m_MethodName: UpdateValue
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -15005,7 +15007,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  switchOff: 1
+  switchOff: 0
   instancer: {fileID: 11400000, guid: 5d2d36c33540f4647ac1fb20f0eb5fb0, type: 2}
   spawnPointCenterV3: {fileID: 11400000, guid: 0d47b681dc03e7840901ca2abba4c167, type: 2}
   spawnLocation: {fileID: 11400000, guid: 593b448577992ba459125d574d9185e0, type: 2}

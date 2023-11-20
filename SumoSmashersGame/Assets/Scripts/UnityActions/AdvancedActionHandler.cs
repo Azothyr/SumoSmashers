@@ -11,7 +11,7 @@ public class GameActionEvent
 }
 
 [DisallowMultipleComponent]
-public class GameActionHandler: MonoBehaviour
+public class AdvancedActionHandler: MonoBehaviour
 {
     // This list allows adding multiple GameActionEvent objects from the inspector.
     public List<GameActionEvent> gameActions;

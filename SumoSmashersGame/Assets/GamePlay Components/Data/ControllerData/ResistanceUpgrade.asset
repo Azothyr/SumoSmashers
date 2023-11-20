@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d374f5daae17c6249a07ec2ca9a41481, type: 3}
-  m_Name: Score
+  m_Script: {fileID: 11500000, guid: 9e19532b012dd6c458106994db8cf463, type: 3}
+  m_Name: ResistanceUpgrade
   m_EditorClassIdentifier: 
-  zeroOnEnable: 1
-  value: 0
+  Data: {fileID: 11400000, guid: 31a3ae9289caa8243846ab5602eca049, type: 2}
+  IncreaseAmount: 0.5

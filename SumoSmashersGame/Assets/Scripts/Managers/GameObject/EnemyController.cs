@@ -29,6 +29,21 @@ public class EnemyController : ControllerBase
         StartMovement();
     }
     
+    public override void TriggerDeathEvent()
+    {
+        deathTriggerEvent.Invoke();
+    }
+
+    public void PassScoreValue(IntData scoreContainer)
+    {
+        scoreContainer.value += enemyData.scoreValue;
+    }
+
+    public void PassMonetaryValue(IntData wealthContainer)
+    {
+        wealthContainer.value += enemyData.currencyValue;
+    }
+    
     protected override IEnumerator Move()
     {
         while (controllerData.canRun.value)

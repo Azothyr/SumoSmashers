@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4859577385032673770}
   - component: {fileID: 1785778385198667429}
   - component: {fileID: 3262661658726911215}
+  - component: {fileID: 5770661275238192794}
   m_Layer: 26
   m_Name: Enemy
   m_TagString: Untagged
@@ -44,10 +45,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2257305119793489493}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -61,9 +73,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2257305119793489493}
   m_Material: {fileID: 13400000, guid: d9d94d5b275eabb4db98b489ff6d4f76, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4859577385032673770
@@ -96,30 +116,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1785778385198667429}
-          m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
-          m_MethodName: TriggerDestroy
-          m_Mode: 1
+        - m_Target: {fileID: 5770661275238192794}
+          m_TargetAssemblyTypeName: WaitBehavior, Assembly-CSharp
+          m_MethodName: startWaitForSecondsEvent
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - nameIdObj: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
-    triggerEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -163,6 +167,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3262661658726911215}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: PassScoreValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 02e0d07fbbac453459b8f65e1542b76b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3262661658726911215}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: PassMonetaryValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5d6f8531aba88fd47a970b50b19f688f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   controllerData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
   rigidBody: {fileID: 5936936584124063510}
   playerV3: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}
@@ -181,11 +211,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5770661275238192794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257305119793489493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0f96cfc4263dc4ba97e781c546170a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purpose: 
+  endWaitForSeconds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1785778385198667429}
+        m_TargetAssemblyTypeName: DestroyBehavior, Assembly-CSharp
+        m_MethodName: TriggerDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endWaitForZero:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3231702426565264464
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2257305119793489498}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cca7009d3dd0a0a47a4a93b7dfbe9207,
@@ -264,6 +326,9 @@ PrefabInstance:
       value: D20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca7009d3dd0a0a47a4a93b7dfbe9207, type: 3}
 --- !u!4 &3122095433918030779 stripped
 Transform:
