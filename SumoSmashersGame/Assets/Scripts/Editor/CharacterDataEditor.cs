@@ -5,9 +5,9 @@ using UnityEditor;
 public class CharacterDataEditor : Editor
 {
     SerializedProperty scriptProperty;
-    bool dataFoldout = false; // State of the foldout for Data Elements, starts as folded
-    bool builtInFoldout = false; // State of the foldout for Built-in Elements, starts as folded
-    bool enemyDataFoldout = false; // State of the foldout for Enemy Specific Data, starts as folded
+    bool dataFoldout = true; // State of the foldout for Data Elements, starts as folded
+    bool builtInFoldout = true; // State of the foldout for Built-in Elements, starts as folded
+    bool enemyDataFoldout = true; // State of the foldout for Enemy Specific Data, starts as folded
 
     private void OnEnable()
     {
@@ -33,7 +33,8 @@ public class CharacterDataEditor : Editor
             {
                 enemyData.prefab = (GameObject)EditorGUILayout.ObjectField("Prefab", enemyData.prefab, typeof(GameObject), false);
                 enemyData.speedDelta = EditorGUILayout.IntSlider("Speed Delta", enemyData.speedDelta, -100, 100);
-                enemyData.value = EditorGUILayout.IntField("Value", enemyData.value);
+                enemyData.scoreValue = EditorGUILayout.IntField("Score Value", enemyData.scoreValue);
+                enemyData.currencyValue = EditorGUILayout.IntField("Wealth Value", enemyData.currencyValue);
             }
             GUILayout.Space(5f); // Add space after the section
         }

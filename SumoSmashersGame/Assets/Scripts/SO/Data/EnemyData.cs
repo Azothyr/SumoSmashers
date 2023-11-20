@@ -8,5 +8,5 @@ public class EnemyData : CharacterData
     [Range(-100, 100)] // Adjust min and max values as needed
     public int speedDelta;
 
-    public int value;
+    public int scoreValue, currencyValue;
 }
