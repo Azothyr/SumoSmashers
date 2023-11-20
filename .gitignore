@@ -38,5 +38,10 @@ sysinfo.txt
 
 *.DS_Store
 
-
 *.idea
+
+# Houdini HDA's and bin files
+*.hdanc
+*.hda
+*.hipnc
+*.hip
