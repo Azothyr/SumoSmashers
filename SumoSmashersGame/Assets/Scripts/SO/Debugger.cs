@@ -8,7 +8,7 @@ public class Debugger : ScriptableObject
 
        private void OnEnable()
        {
-              debugManager = FindObjectOfType<DebugManager>();
+              debugManager = FindFirstObjectByType<DebugManager>();
               if (debugManager == null)
               {
                      Debug.LogWarning("DebugManager not found in the scene.");

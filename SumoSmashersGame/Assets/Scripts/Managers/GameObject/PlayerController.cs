@@ -50,14 +50,14 @@ public class PlayerController : ControllerBase
             moveDirection = (skew * inputDirection);
             rigidBody.AddForce(moveDirection * speed, ForceMode.Acceleration);
 
-            if (rigidBody.velocity.x > topSpeed)
+            if (rigidBody.linearVelocity.x > topSpeed)
             {
-                rigidBody.velocity = new Vector3(topSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
+                rigidBody.linearVelocity = new Vector3(topSpeed, rigidBody.linearVelocity.y, rigidBody.linearVelocity.z);
             }
 
-            if (rigidBody.velocity.x < negativeTopSpeed)
+            if (rigidBody.linearVelocity.x < negativeTopSpeed)
             {
-                rigidBody.velocity = new Vector3(negativeTopSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
+                rigidBody.linearVelocity = new Vector3(negativeTopSpeed, rigidBody.linearVelocity.y, rigidBody.linearVelocity.z);
             }
 
             if (rigidBody.position.y > 0)
@@ -65,17 +65,17 @@ public class PlayerController : ControllerBase
                 rigidBody.position = new Vector3(rigidBody.position.x, 0, rigidBody.position.z);
             }
 
-            if (rigidBody.velocity.z > topSpeed)
+            if (rigidBody.linearVelocity.z > topSpeed)
             {
-                rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, topSpeed);
+                rigidBody.linearVelocity = new Vector3(rigidBody.linearVelocity.x, rigidBody.linearVelocity.y, topSpeed);
             }
 
-            if (rigidBody.velocity.z < negativeTopSpeed)
+            if (rigidBody.linearVelocity.z < negativeTopSpeed)
             {
-                rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, negativeTopSpeed);
+                rigidBody.linearVelocity = new Vector3(rigidBody.linearVelocity.x, rigidBody.linearVelocity.y, negativeTopSpeed);
             }
 
-            velocity = rigidBody.velocity;
+            velocity = rigidBody.linearVelocity;
 
             SetCurrentV3();
             yield return wffuObj;
