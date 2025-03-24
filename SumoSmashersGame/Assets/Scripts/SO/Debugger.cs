@@ -3,48 +3,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Debugger", menuName = "Debug/Debugger")]
 public class Debugger : ScriptableObject
 {
-       public bool individualDebug = true;
-       private DebugManager debugManager;
-
-       private void OnEnable()
-       {
-              debugManager = FindFirstObjectByType<DebugManager>();
-              if (debugManager == null)
-              {
-                     Debug.LogWarning("DebugManager not found in the scene.");
-              }
-       }
-
-       private void Log(object message)
-       {
-              if (debugManager.globalDebug  && individualDebug)
-              {
-                     Debug.Log(message);
-              }
-       }
+    private void HandleDebug<T>(T obj)
+    {
+        Debug.Log(obj, this);
+    }
+    
+    public void OnDebug(string obj) => HandleDebug(obj);
        
-       public void OnDebug(string obj)
-       {
-              Log(obj);
-       }
+    public void OnDebug(float obj) => HandleDebug(obj);
        
-       public void OnDebug(float obj)
-       {
-              Log(obj);
-       }
+    public void OnDebug(FloatData obj) => HandleDebug(obj);
        
-       public void OnDebug(bool obj)
-       {
-              Log(obj);
-       }
+    public void OnDebug(bool obj) => HandleDebug(obj);
        
-       public void OnDebug(object obj)
-       {
-              Log(obj);
-       }
+    public void OnDebug(BoolData obj) => HandleDebug(obj);
        
-       public void OnDebug(int obj)
-       {
-              Log(obj);
-       }
+    public void OnDebug(int obj) => HandleDebug(obj);
+       
+    public void OnDebug(IntData obj) => HandleDebug(obj);
+       
+    public void OnDebug(Transform obj) => HandleDebug(obj);
 }
