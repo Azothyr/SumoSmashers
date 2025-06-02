@@ -6438,8 +6438,6 @@ GameObject:
   - component: {fileID: 1646564410}
   - component: {fileID: 1646564409}
   - component: {fileID: 1646564408}
-  - component: {fileID: 1646564412}
-  - component: {fileID: 1646564411}
   m_Layer: 5
   m_Name: Button(PressToContinue)
   m_TagString: Untagged
@@ -6514,6 +6512,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1294312738}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 436411881}
+        m_TargetAssemblyTypeName: TMPAnimator, Assembly-CSharp
+        m_MethodName: StopPulseAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6598,52 +6608,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646564406}
   m_CullTransparentMesh: 1
---- !u!114 &1646564411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646564406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068da4c93c3b42640b047909e453a7fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedEvent: 4
-  eventActions:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 11400000, guid: a0262c2b808af1c499f4773e6bf64323, type: 2}, m_TargetAssemblyTypeName: Debugger, Assembly-CSharp, m_MethodName: OnDebug, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: On disable called, m_BoolArgument: 0}, m_CallState: 2}
-      - {m_Target: {fileID: 436411881}, m_TargetAssemblyTypeName: TMPAnimator, Assembly-CSharp, m_MethodName: StopPulseAnimation, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
---- !u!114 &1646564412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646564406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068da4c93c3b42640b047909e453a7fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedEvent: 1
-  eventActions:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 11400000, guid: a0262c2b808af1c499f4773e6bf64323, type: 2}, m_TargetAssemblyTypeName: Debugger, Assembly-CSharp, m_MethodName: OnDebug, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 1, m_StringArgument: On enable called, m_BoolArgument: 0}, m_CallState: 2}
-      - {m_Target: {fileID: 436411881}, m_TargetAssemblyTypeName: TMPAnimator, Assembly-CSharp, m_MethodName: PlayPulseAnimation, m_Mode: 4, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 1, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
 --- !u!1 &1692500853
 GameObject:
   m_ObjectHideFlags: 0
