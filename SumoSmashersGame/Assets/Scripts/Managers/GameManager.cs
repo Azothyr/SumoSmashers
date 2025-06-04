@@ -24,4 +24,9 @@ public class GameManager : MonoBehaviour
     {
         restartGameEvent.Invoke();
     }
+    
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
 }
