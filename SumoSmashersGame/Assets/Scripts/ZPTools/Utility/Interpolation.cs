@@ -4,7 +4,7 @@ namespace ZPTools.Utility
 {
     public class Interpolation : MonoBehaviour
     {
-        private static float LogarithmicLerp(float start, float end, float normalizedTime, float exponentialFactor,
+        public static float LogarithmicLerp(float start, float end, float normalizedTime, float exponentialFactor,
             float timeScale = 1f, bool performDebug = false)
         {
             // Clamp normalized time to [0, 1]

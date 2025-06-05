@@ -2318,6 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textObj: {fileID: 436411879}
+  allowDebug: 0
   pulseOnStart: 1
 --- !u!1 &510205532
 GameObject:
