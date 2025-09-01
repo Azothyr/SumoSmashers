@@ -6,15 +6,13 @@ public class CoroutineBehavior : MonoBehaviour
 {
     public UnityEvent startEvent, startCountEvent,repeatCountEvent, endCountEvent;
     
-    public IntData counterNum;
-    public float seconds = 1.0f;
+    [SerializeField] private IntData counterNum;
+    private const float Second = 1.0f;
     private WaitForSeconds wfsObj;
-    private WaitForFixedUpdate wffuObj;
 
     public void Start()
     {
-        wfsObj = new WaitForSeconds(seconds);
-        wffuObj = new WaitForFixedUpdate();
+        wfsObj = new WaitForSeconds(Second);
         startEvent.Invoke();
     }
 

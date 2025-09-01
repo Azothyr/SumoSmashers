@@ -7,9 +7,8 @@ public class WaitBehavior : MonoBehaviour
     [SerializeField] private string purpose;
     public UnityEvent endWaitForSeconds, endWaitForZero;
     
-    private int waitAmount;
-    private WaitForSeconds wfsObj = new WaitForSeconds(1);
-    private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
+    private WaitForSeconds wfsObj = new(1);
+    private WaitForFixedUpdate wffuObj = new();
 
     public void startWaitForSecondsEvent(int seconds)
     {
@@ -23,7 +22,7 @@ public class WaitBehavior : MonoBehaviour
     
     private IEnumerator WaitForZeroIntDataEvent(IntData obj)
     {
-        waitAmount = obj.value;
+        var waitAmount = obj.value;
         
         while (waitAmount > 0)
         {
@@ -35,7 +34,7 @@ public class WaitBehavior : MonoBehaviour
     
     private IEnumerator WaitForSecondsEvent(int num)
     {
-        waitAmount = num;
+        var waitAmount = num;
         
         while (waitAmount > 0)
         {

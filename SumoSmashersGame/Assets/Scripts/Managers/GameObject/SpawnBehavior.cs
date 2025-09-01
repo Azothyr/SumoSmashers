@@ -45,7 +45,6 @@ public class SpawnBehavior : MonoBehaviour
     
     private Vector3 GenerateSpawnV3Value(float rangeFromObjectMin, float rangeFromObjectMax)
     {
-        
         lowerRangeMin = (-1 * rangeFromObjectMax);
         upperRangeMax = rangeFromObjectMax;
         lowerRangeMax = (-1 * rangeFromObjectMin);

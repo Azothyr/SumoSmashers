@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SurvivalMode.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: e20f211937d1f9b479aa1aa630d2e720, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: cfebe406d833e3941980e375bc6d593b,
       type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
       guid: 55583056f7d52cb46b7bf9b19765a230, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 39340fffd2727d0468acaf9a92193c15, type: 2}
+  m_UseUCBPForAssetBundles: 0
